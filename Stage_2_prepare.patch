@@ -1,0 +1,50 @@
+Index: src/main/java/net/khoroshev/sbs/controller/HelloWorldController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/net/khoroshev/sbs/controller/HelloWorldController.java	(revision 35f5be22e66de1a6904ca320743589950e56fd87)
++++ src/main/java/net/khoroshev/sbs/controller/HelloWorldController.java	(revision cacc05cd3f6defa1d58b49b9c085f3d68d61554c)
+@@ -1,5 +1,6 @@
+ package net.khoroshev.sbs.controller;
+ 
++import net.khoroshev.sbs.service.GreetingService;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.GetMapping;
+ import org.springframework.web.bind.annotation.RequestParam;
+@@ -7,9 +8,15 @@
+ 
+ @Controller
+ public class HelloWorldController {
++    private final GreetingService greetingService;
++
++    public HelloWorldController(GreetingService greetingService) {
++        this.greetingService = greetingService;
++    }
++
+     @GetMapping("/hello")
+     @ResponseBody
+     public String hello(@RequestParam String name, @RequestParam String lastName) {
+-        return String.format("Hello %s %s!",name, lastName);
++        return greetingService.makeGreeting(name, lastName);
+     }
+ }
+Index: src/main/java/net/khoroshev/sbs/service/GreetingService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/net/khoroshev/sbs/service/GreetingService.java	(revision cacc05cd3f6defa1d58b49b9c085f3d68d61554c)
++++ src/main/java/net/khoroshev/sbs/service/GreetingService.java	(revision cacc05cd3f6defa1d58b49b9c085f3d68d61554c)
+@@ -0,0 +1,11 @@
++package net.khoroshev.sbs.service;
++
++import org.springframework.stereotype.Service;
++
++@Service
++public class GreetingService {
++    public String makeGreeting(String name, String lastName) {
++        //TODO
++        return "TODO";
++    }
++}

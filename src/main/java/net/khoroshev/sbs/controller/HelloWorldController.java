@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloWorldController {
     private final GreetingService greetingService;
 
+
     public HelloWorldController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
