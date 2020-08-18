@@ -1,12 +1,19 @@
 package net.khoroshev.sbs.domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Data
+@Entity
 public class Dictionary {
+
     @Id
-    private long id;
+    @GeneratedValue
+    private Long id;
+    
     private String thename;
     private String rhymp;
 }
