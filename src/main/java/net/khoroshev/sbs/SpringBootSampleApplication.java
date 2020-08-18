@@ -10,8 +10,7 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 @EnableJdbcAuditing
 public class SpringBootSampleApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		SpringApplication.run(SpringBootSampleApplication.class, args);
 	}
-
 }
